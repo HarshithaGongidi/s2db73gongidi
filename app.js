@@ -7,9 +7,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var RabbitRouter = require('./routes/Rabbit');
+var RabbitRouter = require('./routes/rabbit');
 var AddmodsRouter = require('./routes/addmods');
-var SelectorRouter = require('./routes/Selector');
+var SelectorRouter = require('./routes/selector');
 var app = express();
 
 // view engine setup
