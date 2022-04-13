@@ -14,23 +14,23 @@ var usersRouter = require('./routes/users');
 var rabbitRouter = require('./routes/rabbit');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
-var Rabbit = require('./models/rabbit');
+var rabbit = require('./models/rabbit');
 
 // We can seed the collection if needed on server start
 async function recreateDB(){
 // Delete everything
-await Rabbit.deleteMany();
+await rabbit.deleteMany();
 let instance1 = new Rabbit({age: '2', color:'white', weight: '5.5 lbs'});
 instance1.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("First object saved")
 });
-let instance2 = new Rabbit({age:'1', color:'brown', weight: '3.2 lbs'});
+let instance2 = new rabbit({age:'1', color:'brown', weight: '3.2 lbs'});
 instance2.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("Second object saved")
 });
-let instance3 = new Rabbit({age:'3', color:'black', weight: '4.5 lbs'});
+let instance3 = new rabbit({age:'3', color:'black', weight: '4.5 lbs'});
 instance3.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("Third object saved")
