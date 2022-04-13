@@ -4,12 +4,41 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const connectionString = process.env.MONGO_CON
+mongoose = require('mongoose');
+mongoose.connect(connectionString,
+{useNewUrlParser: true, useUnifiedTopology: true});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var rabbitRouter = require('./routes/rabbit');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
+var rabbit = require('./models/rabbit');
+
+// We can seed the collection if needed on server start
+async function recreateDB(){
+// Delete everything
+await rabbit.deleteMany();
+let instance1 = new rabbit({age: '2', color:'white', weight: '5.5 lbs'});
+instance1.save( function(err,doc) {
+if(err) return console.error(err);
+console.log("First object saved")
+});
+let instance2 = new rabbit({age:'1', color:'brown', weight: '3.2 lbs'});
+instance2.save( function(err,doc) {
+if(err) return console.error(err);
+console.log("Second object saved")
+});
+let instance3 = new rabbit({age:'3', color:'black', weight: '4.5 lbs'});
+instance3.save( function(err,doc) {
+if(err) return console.error(err);
+console.log("Third object saved")
+});
+}
+
+let reseed = true;
+if (reseed) { recreateDB();}
 
 var app = express();
 
