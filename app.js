@@ -20,7 +20,7 @@ var rabbit = require('./models/rabbit');
 async function recreateDB(){
 // Delete everything
 await rabbit.deleteMany();
-let instance1 = new Rabbit({age: '2', color:'white', weight: '5.5 lbs'});
+let instance1 = new rabbit({age: '2', color:'white', weight: '5.5 lbs'});
 instance1.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("First object saved")
