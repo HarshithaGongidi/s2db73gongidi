@@ -1,11 +1,7 @@
 const mongoose = require("mongoose")
 const rabbitSchema = mongoose.Schema({
-    age:{
-        type: String,
-    },
-    color:{
-        type: String,
-    },
+    age: String,
+    color: String,
     weight: String
 })
 module.exports = mongoose.model("Rabbit", rabbitSchema)
