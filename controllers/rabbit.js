@@ -12,6 +12,19 @@ exports.rabbit_list = async function(req, res) {
     }
 };
 
+// VIEWS
+// Handle a show all view
+exports.rabbit_view_all_Page = async function(req, res) {
+    try{
+        therabbit = await rabbit.find();
+        res.render('rabbit', { title: 'Rabbit Search Results', results: therabbit });
+    }
+    catch(err){
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
+};
+
 // for a specific Rabbit.
 exports.rabbit_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: rabbit detail: ' + req.params.id);
