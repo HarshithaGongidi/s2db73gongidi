@@ -1,10 +1,18 @@
 var rabbit = require('../models/rabbit');
 
 // List of all Rabbits
-exports.rabbit_list = function(req, res) {
-res.send('NOT IMPLEMENTED: rabbit list');
+exports.rabbit_list = async function(req, res) {
+    try{
+        therabbit = await rabbit.find();
+        res.send(therabbit);
+    }
+    catch(err){
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
 };
-// for a specific Costume.
+
+// for a specific Rabbit.
 exports.rabbit_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: rabbit detail: ' + req.params.id);
 };
