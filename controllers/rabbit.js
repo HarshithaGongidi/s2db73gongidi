@@ -62,7 +62,24 @@ exports.rabbit_create_post = async function(req, res) {
 exports.rabbit_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: rabbit delete DELETE ' + req.params.id);
 };
+
 // Handle rabbit update form on PUT.
-exports.rabbit_update_put = function(req, res) {
-res.send('NOT IMPLEMENTED: rabbit update PUT' + req.params.id);
+exports.rabbit_update_put = async function(req, res) {
+console.log(`update on id ${req.params.id} with body
+${JSON.stringify(req.body)}`)
+try {
+    let toUpdate = await rabbit.findById( req.params.id)
+    // Do updates of properties
+    if(req.body.age)
+    toUpdate.age = req.body.age;
+    if(req.body.color) toUpdate.color = req.body.color;
+    if(req.body.weight) toUpdate.weight = req.body.weight;
+    let result = await toUpdate.save();
+    console.log("Sucess " + result)
+    res.send(result)
+} catch (err) {
+    res.status(500)
+    res.send(`{"error": ${err}: Update for id ${req.params.id}
+    failed`);
+}
 };
