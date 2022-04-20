@@ -6,3 +6,13 @@ var router = express.Router();
 router.get('/', rabbit_controlers.rabbit_view_all_Page );
 module.exports = router;
 
+/* GET home page. */
+router.get('/', function(req, res, next) {
+    res.render('rabbit', { title: 'Search Results Rabbit' });
+});
+
+/* GET detail rabbit page */
+router.get('/detail', rabbit_controlers.rabbit_view_one_Page);
+
+
+
