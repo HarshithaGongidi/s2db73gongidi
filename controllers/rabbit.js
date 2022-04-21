@@ -140,7 +140,8 @@ exports.rabbit_delete_Page = async function(req, res) {
     console.log("Delete view for id " + req.query.id)
     try{
         result = await rabbit.findById(req.query.id)
-        res.render('rabbitdelete', { title: 'rabbit Delete', toShow: result });
+        res.render('rabbitdelete', { title: 'rabbit Delete', toShow: 
+result });
     }
     catch(err){
         res.status(500)
