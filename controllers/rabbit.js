@@ -121,13 +121,13 @@ exports.rabbit_create_Page = function(req, res) {
     }
     };
 
-// Handle building the view for updating a costume.
+// Handle building the view for updating a rabbit.
 // query provides the id
-exports.costume_update_Page = async function(req, res) {
+exports.rabbit_update_Page = async function(req, res) {
     console.log("update view for item "+req.query.id)
     try{
-        let result = await Costume.findById(req.query.id)
-        res.render('costumeupdate', { title: 'Costume Update', toShow: result });
+        let result = await rabbit.findById(req.query.id)
+        res.render('rabbitupdate', { title: 'rabbit Update', toShow: result });
     }
     catch(err){
         res.status(500)
