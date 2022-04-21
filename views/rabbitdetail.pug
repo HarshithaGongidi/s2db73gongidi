@@ -3,22 +3,22 @@ extends layout
 block content
   h1= title
     if (toShow == null) 
-      h2 No instance to delete 
+        h2 No instance to delete 
     else 
-      - let rabbitid = toShow._id
-      - let age = toShow.age
-      - let color = toShow.color
-      - let weight = toShow.weight
+        - let rabbitid = toShow._id
+        - let age = toShow.age
+        - let color = toShow.color
+        - let weight = toShow.weight
     div
       div.row
         div(class='rabbitAttr mr-3') rabbit ID is:
-        div #{rabbitid}
+        div(class="rabbit style") #{rabbitid}
       div.row
         div(class='rabbitAttr mr-3') rabbit age is:
-        div #{age}
+        div(class="rabbit style") #{age}
       div.row
         div(class='rabbitAttr mr-3') rabbit color is:
-        div #{color}
+        div(class="rabbit style") #{color}
       div.row
         div(class='rabbitAttr mr-3') rabbit weight is:
-        div #{weight}
+        div(class="rabbit style") #{weight}
