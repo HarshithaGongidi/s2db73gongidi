@@ -14,5 +14,6 @@ router.get('/', function(req, res, next) {
 /* GET detail rabbit page */
 router.get('/detail', rabbit_controlers.rabbit_view_one_Page);
 
-
+/* GET create rabbit page */
+router.get('/create', rabbit_controlers.rabbit_create_Page);
 

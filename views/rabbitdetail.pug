@@ -2,20 +2,20 @@ extends layout
 
 block content
   h1= title
-  - let rabbitid = toShow._id
-  - let rabbit_type = toShow.rabbit_type
-  - let rabbitcost = toShow.cost
-  - let rabbitsize = toShow.size
+    - let rabbitid = toShow._id
+    - let age = toShow.age
+    - let color = toShow.color
+    - let weight = toShow.weight
   div
-    div.row
-      div(class='rabbitAttr mr-3') rabbit ID is:
-      div #{rabbitid}
-    div.row
-      div(class='rabbitAttr mr-3') rabbit Type is:
-      div #{rabbit_type}
-    div.row
-      div(class='rabbitAttr mr-3') rabbit Size is:
-      div #{rabbitsize}
-    div.row
-      div(class='rabbitAttr mr-3') rabbit Cost is:
-      div #{rabbitcost}
+  div.row
+  div(class='rabbitAttr mr-3') rabbit ID is:
+  div #{rabbitid}
+  div.row
+  div(class='rabbitAttr mr-3') rabbit age is:
+  div #{age}
+  div.row
+  div(class='rabbitAttr mr-3') rabbit color is:
+  div #{color}
+  div.row
+  div(class='rabbitAttr mr-3') rabbit weight is:
+  div #{weight}
