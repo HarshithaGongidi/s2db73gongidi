@@ -8,13 +8,21 @@ block content
     - let color = toShow.color
     - let weight = toShow.weight
 
-    div.row(class='mb-2') 
-        div.mr-1 ID is 
-        div #{rabbitid}
-    - let actionid = "/resource/rabbit/" + rabbitid
-  
+  div
+  div.row
+  div(class='rabbitAttr mr-3') rabbit ID is:
+  div #{rabbitid}
+  div.row
+  div(class='rabbitAttr mr-3') rabbit age is:
+  div #{age}
+  div.row
+  div(class='rabbitAttr mr-3') rabbit color is:
+  div #{color}
+  div.row
+  div(class='rabbitAttr mr-3') rabbit weight is:
+  div #{weight}
 
-  form(id='rabbitForm', action="/resource/rabbit", method="POST")
+  form(id='rabbitForm', action="/resource/rabbit/rabbitid", method="PUT")
     div.form-group
       label.rabbitAttr(for='age') rabbit age
       input#age(type='text', name='age')
