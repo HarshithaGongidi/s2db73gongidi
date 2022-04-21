@@ -2,20 +2,23 @@ extends layout
 
 block content
   h1= title
-    - let rabbitid = toShow._id
-    - let age = toShow.age
-    - let color = toShow.color
-    - let weight = toShow.weight
-  div
-  div.row
-  div(class='rabbitAttr mr-3') rabbit ID is:
-  div #{rabbitid}
-  div.row
-  div(class='rabbitAttr mr-3') rabbit age is:
-  div #{age}
-  div.row
-  div(class='rabbitAttr mr-3') rabbit color is:
-  div #{color}
-  div.row
-  div(class='rabbitAttr mr-3') rabbit weight is:
-  div #{weight}
+    if (toShow == null) 
+      h2 No instance to delete 
+    else 
+      - let rabbitid = toShow._id
+      - let age = toShow.age
+      - let color = toShow.color
+      - let weight = toShow.weight
+    div
+      div.row
+        div(class='rabbitAttr mr-3') rabbit ID is:
+        div #{rabbitid}
+      div.row
+        div(class='rabbitAttr mr-3') rabbit age is:
+        div #{age}
+      div.row
+        div(class='rabbitAttr mr-3') rabbit color is:
+        div #{color}
+      div.row
+        div(class='rabbitAttr mr-3') rabbit weight is:
+        div #{weight}
