@@ -11,18 +11,3 @@ a {
   background-color: aquamarine;
   width: 120px;
   }
-
-.rabbit{
-  width: 200px;
-  margin: 10px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
-  font-weight:normal;
-  
-  }
-.style{
-  color:rgb(205, 255, 206);
-  background-color:black;
-  color: rgb(255, 251, 30)
-}
