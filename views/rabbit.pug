@@ -14,6 +14,8 @@ block content
             - let destination = `dispatch(\"/rabbit/update?id=${item._id}\")`
             div(class="row-sm-2", class="m-1") rabbit #{item.color}(#{item.weight}) and #{item.age} years 
                 button.btn( class="btn-primary ml-1", onclick= destination) Update
+                button.btn( class="btn-secondary ml-2", onclick=detail ) Get Detail page
+                button.btn( class="btn-warning ml-2", onclick=de ) Delete
 
         
 
