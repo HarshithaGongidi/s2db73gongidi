@@ -2,6 +2,15 @@ var express = require('express');
 const rabbit_controlers= require('../controllers/rabbit');
 var router = express.Router();
 
+// redirect to login.
+const secured = (req, res, next) => {
+    if (req.user){
+        return next();
+    }
+    req.session.returnTo = req.originalUrl;
+    res.redirect("/login");
+}
+
 /* GET Rabbit */
 router.get('/', rabbit_controlers.rabbit_view_all_Page );
 module.exports = router;
@@ -15,11 +24,13 @@ router.get('/', function(req, res, next) {
 router.get('/detail', rabbit_controlers.rabbit_view_one_Page);
 
 /* GET create rabbit page */
-router.get('/create', rabbit_controlers.rabbit_create_Page);
+router.get('/create',secured, rabbit_controlers.rabbit_create_Page);
 
-/* GET create update page */
-router.get('/update', rabbit_controlers.rabbit_update_Page);
+/* GET update rabbit page */
+router.get('/update',secured, rabbit_controlers.rabbit_update_Page);
 
 /* GET delete rabbit page */
-router.get('/delete', rabbit_controlers.rabbit_delete_Page);
+router.get('/delete',secured, rabbit_controlers.rabbit_delete_Page);
+
+module.exports = router;
 
