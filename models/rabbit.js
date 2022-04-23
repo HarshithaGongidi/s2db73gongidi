@@ -1,7 +1,13 @@
 const mongoose = require("mongoose")
 const rabbitSchema = mongoose.Schema({
-    age: String,
-    color: String,
+    age:{
+        type: String,
+        maxLength: 10
+    },
+    color:{
+        type: String,
+        minLength: 3
+    },
     weight: String
 })
 
