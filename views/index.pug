@@ -1,15 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p All American is my favorite series
-  button(type='button' class='btn btn-secondary' onclick='moreClaps ()') Press Me
- 
-  div(id = "target") Clap for me
-  script.
-    let clap_count = 0
-    let a = "Clap"
-    let b = "times"
-    function moreClaps(){
-      clap_count = clap_count + 2;
-      document.getElementById("target").innerHTML= "Clap " + clap_count + " times";}
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/rabbit") Take me to rabbit
+    br
+    a(href="/logout") Logout
